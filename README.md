@@ -7,14 +7,13 @@
 
 Create an API in Node.js/Express exposing 3 endpoints to GET and POST random user data!
 We want to make asynchronous requests from within our API to retrieve our data initially from a 3rd party API ("https://randomuser.me/api").
-Below are the details of the requirements and endpoints. Good luck!
 
 ### Requirements:
 
 * Node version > 4.x
 * Express version 4
 * Asynchronous request module of your choice.
-* Asynchronous handling using either callacks, promises or async/await
+* Asynchronous handling using either callbacks, promises or async/await
 * Client of your choice to perform requests to your API (i.e. Postman etc).
 
 ### Endpoints:
@@ -22,10 +21,10 @@ Below are the details of the requirements and endpoints. Good luck!
 #### `GET /users`
 
 When this endpoint receives a request from the client, 10 asynchronous requests are made to "https://randomuser.me/api",
-  retrieving 10 different user records and stores them in memory. Every time after this endpoint recieves a request,
-  10 NEW user records are stored in memory.
+retrieving 10 different user records and stores them in memory. Every time after this endpoint recieves a request,
+10 NEW user records are stored in memory.
 
-  Raw user data retrieved from "https://randomuser.me/api" are stored in memory as shown below:
+Raw user data retrieved from "https://randomuser.me/api" are stored in memory as shown below:
 ````
   {
     gender: 'foo',
