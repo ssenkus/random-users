@@ -29,9 +29,13 @@ function fetchUsers(req, res, done) {
 function getUserByFirstName(req, res, done) {
     const firstName = req.params.firstname;
 
-    userRepo.getUserByFirstname(firstName, (err, user) => {
+    userRepo.getUserByFirstName(firstName, (err, user) => {
         if (err) return done(err);
-        console.log('USER', user)
+
+        if (!user) {
+            res.status(404).json({ message: 'User not found! '});
+        }
+
         return res.json(user);
     });
 

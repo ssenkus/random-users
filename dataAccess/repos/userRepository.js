@@ -25,9 +25,8 @@ exports.fetchUsers = (done) => {
 
 };
 
-exports.getUserByFirstname = (firstName, done) => {
-    const user = _.find(users, firstName);
-    console.log('USER 1st name: ', user);
+exports.getUserByFirstName = (firstName, done) => {
+    const user = _.find(users, {firstname: firstName});
     done(null, user);
 };
 
