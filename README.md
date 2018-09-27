@@ -8,15 +8,8 @@
 Create an API in Node.js/Express exposing 3 endpoints to GET and POST random user data!
 We want to make asynchronous requests from within our API to retrieve our data initially from a 3rd party API ("https://randomuser.me/api").
 
-### Requirements:
-
-* Node version > 4.x
-* Express version 4
-* Asynchronous request module of your choice.
-* Asynchronous handling using either callbacks, promises or async/await
-* Client of your choice to perform requests to your API (i.e. Postman etc).
-
 ### Getting Started
+
 * Clone this repository
 * Install dependencies: `npm install`
 * Start project: `npm start`
