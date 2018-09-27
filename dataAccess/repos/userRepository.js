@@ -1,22 +1,41 @@
 const request = require('request');
+const async = require('async');
+const User = require('../../models/userModel');
+const _ = require('lodash');
 
-exports.getUsers = (done) => {
+let users = [];
 
-    request.get('https://randomuser.me/api', (err, response, body) => {
+exports.fetchUsers = (done) => {
 
-        let usersData = JSON.parse(body);
+// generate 5 users
+    async.times(10, (n, next) => {
+        request.get('https://randomuser.me/api', (err, response, body) => {
 
-        done(err, usersData);
+            const usersData = JSON.parse(body);
+            // API currently only sends one user
+            // TODO: handleResponse fn should format data
+            const user = new User(usersData.results[0]);
+            users.push(user);
+            next(err, usersData);
+        });
+    }, (err, usersData) => {
+        // usersData param can be useful for debugging
+        done(err, users);
     });
 
 };
 
-exports.createUser = (done) => {
+exports.getUserByFirstname = (firstName, done) => {
+    const user = _.find(users, firstName);
+    console.log('USER 1st name: ', user);
+    done(null, user);
+};
 
-    request.get('https://randomuser.me/api', (err, response, body) => {
+exports.createUser = (usersData, done) => {
+    const user = new User(usersData);
+    users.push(user);
 
-        let usersData = JSON.parse(body);
+    done(null, user);
+};
 
-        done(err, usersData);
-    });
-}
+
