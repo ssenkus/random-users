@@ -11,8 +11,8 @@ exports.configure = (app) => {
 function createUser(req, res, done) {
     const userData = req.body;
 
-    userRepo.createUser(userData, (err, alarm) => {
-        return res.json(alarm);
+    userRepo.createUser(userData, (err, user) => {
+        return res.json(user);
     });
 }
 

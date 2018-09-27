@@ -1,22 +1,38 @@
 const request = require('request');
+const async = require('async');
+const User = require('../../models/userModel');
+
+let users = [];
 
 exports.getUsers = (done) => {
 
-    request.get('https://randomuser.me/api', (err, response, body) => {
+// generate 5 users
+    async.times(10, (n, next) => {
+        console.log('GOt HERE', n);
+        request.get('https://randomuser.me/api', (err, response, body) => {
 
-        let usersData = JSON.parse(body);
-
-        done(err, usersData);
+            const usersData = JSON.parse(body);
+            const user = new User(usersData);
+            console.log('USER DATA', users.length);
+            users.push(user);
+            next(err, usersData);
+        });
+    }, (err, usersData) => {
+        // usersData param can be useful for debugging
+        done(err, users.length);
     });
 
 };
 
+exports.getUserByFirstname = (done) => {
+   // `/users/firstname/:firstname`
+};
+
 exports.createUser = (done) => {
+    const user = new User(usersData);
+    users.push(user);
 
-    request.get('https://randomuser.me/api', (err, response, body) => {
+    done(err, users.length);
+};
 
-        let usersData = JSON.parse(body);
 
-        done(err, usersData);
-    });
-}
