@@ -59,6 +59,15 @@ Response:
 { message: 'User not found! '}
 ```
       
-      
+#### Testing
+
+Postman scripts are including in this project under `Postman-API`.  Download Postman and import this file.  Start the random-users server `npm start`, and run these scripts to test API
+
+#### TODO
+
+* Add unit tests
+* Add integration tests
+* Add DB persistence 
+* Create React-based Dashboard to query/create users
 
 
