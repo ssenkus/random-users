@@ -1,8 +1,8 @@
 # random-users
 
-Random User API
+## Random User API
 
-Objective:
+### Objective:
 
 
 Create an API in Node.js/Express exposing 3 endpoints to GET and POST random user data!
