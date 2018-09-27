@@ -7,7 +7,7 @@ let users = [];
 
 exports.fetchUsers = (done) => {
 
-// generate 5 users
+    // generate 10 users
     async.times(10, (n, next) => {
         request.get('https://randomuser.me/api', (err, response, body) => {
 
