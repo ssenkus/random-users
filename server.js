@@ -18,4 +18,5 @@ app.listen(3000, () => {
 
 function shutDown() {
     console.log('\nShutting down!');
+    process.exit(0);
 }
