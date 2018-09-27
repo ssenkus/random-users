@@ -1,8 +1,21 @@
-var express = require('express')
-var app = express()
+const express = require('express');
+const bodyParser = require('body-parser');
 
-app.get('/', function (req, res) {
-    res.send('Hello World')
-})
+const routes = require('./routes/routes');
+const app = express();
 
-app.listen(3000)
+
+app.use(bodyParser.json({type: 'application/json'}));
+
+app.listen(3000, () => {
+    console.log('App listening on port 3000!');
+
+    routes.configure(app);
+
+    process.on('SIGINT', shutDown);
+    process.on('SIGTERM', shutDown);
+});
+
+function shutDown() {
+    console.log('\nShutting down!');
+}
