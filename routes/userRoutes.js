@@ -14,7 +14,7 @@ function createUser(req, res, done) {
     userRepo.createUser(userData, (err, user) => {
         if (err) return res.send(err.message);
 
-        return res.json(user);
+        return res.status(201).json({message: 'User successfully created!'});
     });
 }
 
@@ -33,7 +33,7 @@ function getUserByFirstName(req, res, done) {
         if (err) return done(err);
 
         if (!user) {
-            res.status(404).json({ message: 'User not found! '});
+            res.status(404).json({message: 'User not found! '});
         }
 
         return res.json(user);
