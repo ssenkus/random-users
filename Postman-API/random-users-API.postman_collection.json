@@ -1,0 +1,107 @@
+{
+	"variables": [],
+	"info": {
+		"name": "random-users API",
+		"_postman_id": "a4d00872-ab95-d9ee-c423-bf0bf1e7f33b",
+		"description": "Postman client requests for the random-users API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/users",
+			"request": {
+				"url": "http://localhost:3000/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"gender\": \"male\",\n\t\"name\": {\n\t\t\"first\": \"Test\"\n\t},\n\t\"location\": {\n\t\t\"city\": \"San Diego\"\n\t},\n\t\"cell\": \"5551234567\"\n}"
+				},
+				"description": "Valid POST data"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/users",
+			"request": {
+				"url": "http://localhost:3000/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"gender\": \"male\",\n\t\"name\": {\n\t\t\"first\": \"Test\"\n\t},\n\t\"location\": {\n\t\t\"city\": \"San Diego\"\n\t},\n\t\"email\": \"email@test.com\",\n\t\"cell\": \"5551234567\"\n}"
+				},
+				"description": "Invalid POST data"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/users",
+			"request": {
+				"url": "http://localhost:3000/users",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"coinId\": \"bitcoin\",\n\t\"priceUsdThreshold\": 10000.00,\n\t\"thresholdDirection\": \"over\"\n}"
+				},
+				"description": "Fetch 10 users and return user list"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/users/firstname/Test",
+			"request": {
+				"url": "http://localhost:3000/users/firstname/Test",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"coinId\": \"bitcoin\",\n\t\"priceUsdThreshold\": 10000.00,\n\t\"thresholdDirection\": \"over\"\n}"
+				},
+				"description": "Retrieve valid user"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/users/firstname/Test copy",
+			"request": {
+				"url": "http://localhost:3000/users/firstname/Test",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"coinId\": \"bitcoin\",\n\t\"priceUsdThreshold\": 10000.00,\n\t\"thresholdDirection\": \"over\"\n}"
+				},
+				"description": "Retrieve valid user"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/users/firstname/Test copy",
+			"request": {
+				"url": "http://localhost:3000/users/firstname/qwerty",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"coinId\": \"bitcoin\",\n\t\"priceUsdThreshold\": 10000.00,\n\t\"thresholdDirection\": \"over\"\n}"
+				},
+				"description": "Retrieve user that does not exist (probably...)"
+			},
+			"response": []
+		}
+	]
+}

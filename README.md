@@ -16,6 +16,11 @@ We want to make asynchronous requests from within our API to retrieve our data i
 * Asynchronous handling using either callbacks, promises or async/await
 * Client of your choice to perform requests to your API (i.e. Postman etc).
 
+### Getting Started
+* Clone this repository
+* Install dependencies: `npm install`
+* Start project: `npm start`
+
 ### Endpoints:
 
 #### `GET /users`
